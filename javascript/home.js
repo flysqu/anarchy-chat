@@ -79,10 +79,11 @@ const requestData = {
     authkey: authkey,
 };
 
-username = getCookie("username")
-document.getElementById("username").textContent = `Logged in as ${username}`
+
 
 document.addEventListener("DOMContentLoaded", function() {
+    username = getCookie("username")
+    document.getElementById("username").textContent = `Logged in as ${username}`
     sendMessage = document.getElementById("messageForm");
     sendMessage.addEventListener("submit", async (e) => {
         e.preventDefault();
