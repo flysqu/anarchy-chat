@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", function() {
         `This form has a username of ${username.value} and password of ${pin.value}`
       );
       
-      username.value = "";
       console.log(JSON.parse(response).authkey)
       document.cookie = `pin=${pin.value};`;
       document.cookie = `username=${username.value}`;
       document.cookie = `authkey=${JSON.parse(response).authkey};`;
 
+      username.value = "";
       pin.value = "";
 
       window.location.href = "home.html"
