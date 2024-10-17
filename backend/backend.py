@@ -10,10 +10,7 @@ app = FastAPI()
 
 # Define allowed origins (frontend URLs that should be allowed to call the API)
 origins = [
-    "http://localhost:8001",
-    "http://127.0.0.1:8001",
-    "http://127.0.0.1:8001/home.html?",
-    "https://anarchy-chat-lern.onrender.com/"
+    "*"
 ]
 
 # Add CORS middleware to the FastAPI app
