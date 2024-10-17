@@ -79,7 +79,7 @@ const requestData = {
     authkey: authkey,
 };
 
-const username = getCookie("username")
+username = getCookie("username")
 document.getElementById("username").textContent = `Logged in as ${username}`
 
 document.addEventListener("DOMContentLoaded", function() {
