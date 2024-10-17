@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <script src="javascript/home.js"></script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        #chatbox {
+            position: relative;
+            left: 19.5%;
+            overflow: scroll;
+            width: 65.5%;
+            height: 80%;
+        }
+        #flex-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            position: relative;
+            top: 11px;
+        }
+        #message {
+            max-width: 200px;
+            background-color: aquamarine;
+            padding-left: 15px;
+            padding-right: 20px;
+        }
+        #timestamp {
+            position:relative;
+            font-size: 10px;
+            padding-top: 4px;
+            right: -3px;
+            top: 3px;
+        }
+        #text {
+            position:relative;
+            top: -22px;
+            left: 18px;
+            word-break: break-word;
+            white-space: normal;
+        }
+        #messageForm {
+            position: absolute;
+            top: 90%;
+            width: 78%;
+            left: 13%;
+            text-align: center;
+        }
+        #messageFormInput {
+            width: 82%
+        }
+        #sendMessage {
+            width: 14%;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Anarchy Chat!</h1>
+        <div id="chatbox">
+        </div>
+        <form action="" id="messageForm">
+            <input type="text" id="messageFormInput" class="form-control" placeholder="Enter your message...">
+            <br>
+            <button type="submit" id="sendMessage">Send Message</button>
+        </form>  
+    </div>
+</body>
+</html>
