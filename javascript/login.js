@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
       username.value = "";
       console.log(JSON.parse(response).authkey)
       document.cookie = `pin=${pin.value};`;
+      document.cookie = `username=${username.value}`;
       document.cookie = `authkey=${JSON.parse(response).authkey};`;
 
       pin.value = "";
