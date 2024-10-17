@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
         username: username.value,
         pin: pin.value,
       };
-      response = await makeRequest(requestData, "http://127.0.0.1:8000/login")
+      response = await makeRequest(requestData, "https://anarchy-chat.onrender.com/login")
       console.log(JSON.parse(response))
 
       console.log(
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
         username: username.value,
         pin: pin.value,
       };
-      response = await makeRequest(requestData, "http://127.0.0.1:8000/signup")
+      response = await makeRequest(requestData, "https://anarchy-chat.onrender.com/signup")
       console.log(response)
 
       console.log(

@@ -27,7 +27,7 @@ async function refreshMessagebox() {
 
         // Make the request to fetch messages
         console.log(requestData)
-        const response = await makeRequest(requestData, "http://127.0.0.1:8000/getmessages");
+        const response = await makeRequest(requestData, "https://anarchy-chat.onrender.com/getmessages");
         
         // Parse the response (assuming it's a JSON string)
         const responseJson = JSON.parse(response);
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
             content: content,
         };
 
-        response = makeRequest(requestData, "http://127.0.0.1:8000/sendmessage").then(response => {
+        response = makeRequest(requestData, "https://anarchy-chat.onrender.com/sendmessage").then(response => {
             const responseJson = JSON.parse(response)
             console.log(responseJson)
         });
