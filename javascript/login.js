@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (username.value == "" || pin.value == "") {
       alert("Ensure you input a value in both fields!");
     } else if (pin.value.lenght == 6) {
-      console.log();
+      alert("The pin needs to be 6 digits")
     } else {
       // perform operation with form input
 
