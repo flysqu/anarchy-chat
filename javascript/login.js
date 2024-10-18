@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
     if (username.value == "" || pin.value == "") {
       alert("Ensure you input a value in both fields!");
+    } else if (pin.value.lenght == 6) {
+      console.log();
     } else {
       // perform operation with form input
 
