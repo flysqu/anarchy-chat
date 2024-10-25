@@ -51,29 +51,15 @@ def test_get_messages(pin, authkey):
     return response.json()
 
 # Main test execution
-if __name__ == "__main__":
-    # Test parameters
-    username = "testuser"
-    pin = "123456"
-    message_content = "Hello, this is a test message!"
 
-    # Test signup
-    signup_response = test_signup(username, pin)
 
-    if signup_response['status'] == 'success':
-        # Test login after signup
-        login_response = test_login(username, pin)
+def signup2():
+    import requests
 
-        if login_response['status'] == 'success':
-            # Retrieve authkey after login
-            authkey = login_response['authkey']
+    url2 = 'http://127.0.0.1:8000/upload'
+    file = {'file': open('C:\\Users\\owo\\Documents\\uwu-chat-app-uwu\\anarchy-chat\\backend\\politics.png', 'rb')}
 
-            # Test sending a message
-            test_send_message(username, pin, authkey, message_content)
+    response = requests.post(url2, files=file)
+    return response.json()
 
-            # Test getting messages
-            test_get_messages(pin, authkey)
-        else:
-            print("Login failed:", login_response)
-    else:
-        print("Signup failed:", signup_response)
+print(signup2())
