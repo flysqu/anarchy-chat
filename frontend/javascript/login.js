@@ -23,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let username = document.getElementById("loginusername");
     let pin = document.getElementById("loginpassword");
 
-
-    
     if (username.value == "" || pin.value == "") {
       alert("Ensure you input a value in both fields!");
       return;
@@ -128,17 +126,11 @@ document.addEventListener("DOMContentLoaded", function () {
       };
       response = await makeRequest(requestData, "http://127.0.0.1:8000/signup");
 
+      await uploadFile(username.value);
+
       console.log(response);
 
       // handle errors
-      const fileInput = document.getElementById("fileInput");
-      const originalFile = fileInput.files[0];
-  
-      // Ensure a file is selected
-      if (!originalFile) {
-        alert("Please select a file first.");
-        return;
-      }
       if (JSON.parse(response).status) {
         if (JSON.parse(response).message == "Incorrect pin") {
           alert("Pin is not a valid number");
@@ -148,10 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
           alert("Username already taken");
           return;
         }
+      } else {
+        alert("User is registered! You may now login");
       }
-      
-      await uploadFile(username.value);
-      alert("User is registered! You may now login");
+
       username.value = "";
       pin.value = "";
     }

@@ -1,15 +1,13 @@
+import sqlite3
 from fastapi import FastAPI, Request, HTTPException, File, UploadFile
-import os
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
-import sqlite3
-import hashlib
-import time
-import random
+import os
 import base64
-from PIL import Image
-import io
+from pydantic import BaseModel
+import hashlib
+import random
+import time
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -99,6 +97,7 @@ async def login(body: LoginBody):
 
 @app.post("/uploadpfp")
 async def upload(file: UploadFile = File(...)):
+    try:
         contents = await file.read()
         
         # Check if the uploaded file is an image
@@ -117,9 +116,12 @@ async def upload(file: UploadFile = File(...)):
         downscaled_path = f"uploads/pfp/{file.filename}"
         image.save(downscaled_path)
 
+    except Exception as err:
+        return {"status": "Error", "message": "There was an error uploading the file", "Error": str(err)}
+    finally:
         await file.close()
 
-        return {"status": "Success", "message": f"Successfully uploaded and resized {file.filename}"}
+    return {"status": "Success", "message": f"Successfully uploaded and resized {file.filename}"}
 
 @app.post("/signup")
 async def signup(body: SignupBody):
